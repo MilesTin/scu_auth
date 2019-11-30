@@ -17,7 +17,10 @@
 <h4>调用步骤</h4?
 <ol>
   <li>获取验证码 https://milestin.xyz:83/auth/getCaptcha</li>
+  ![image](https://github.com/MilesTin/scu_auth/blob/master/md_images/step1.PNG)
   <li>登录 https://milestin.xyz:83/auth/login?stuId=*&passwd=*&captcha=* </li>
+  ![image](https://github.com/MilesTin/scu_auth/blob/master/md_images/step2.PNG)
   <li> 登出 https://milestin.xyz:83/auth/logout</li>
+  ![image](https://github.com/MilesTin/scu_auth/blob/master/md_images/step3.PNG)
 </ol>
 
