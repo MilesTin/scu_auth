@@ -107,7 +107,7 @@ def login(request):
     if result:
         stu, _ = student.objects.get_or_create(id=stuId)
         md5_encoder = md5()
-        md5_encoder.update(passwd)
+        md5_encoder.update(passwd.encode('utf-8'))
         passwd = md5_encoder.hexdigest()
         stu.password = passwd
         stu.save()
