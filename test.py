@@ -5,7 +5,7 @@ import json
 
 stuId = "*"
 password = '*'
-root = 'http://127.0.0.1:8000/'
+root = 'http://milestin.xyz:83/'
 
 if __name__=="__main__":
     domain = root + "auth/"

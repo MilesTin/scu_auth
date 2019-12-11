@@ -78,7 +78,7 @@ class sculogin(object):
         print("data:{}".format(data))
         print("cookies:{}".format(cookies))
         print("登录结果: " + res.text)
-        self.session.close()#修复了登录后session未关闭导致短期不能登录的bug
+
 
         if res.status_code==200:
             return True
