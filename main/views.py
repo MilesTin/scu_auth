@@ -133,7 +133,7 @@ def get_cookies(request):
     return JsonResponse(dict(request.session['cookies']))
 
 def logout(request):
-    del request.session['is_updated']
+    request.session['is_updated'] = False
     del request.session['cookies']
 
     return JsonResponse(data={"msg":"登出成功"})

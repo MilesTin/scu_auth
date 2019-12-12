@@ -5,8 +5,8 @@ import json
 
 stuId = "2017141461248"
 password = 'tmzqq520..'
-root = 'http://127.0.0.1:8000/'
-root_ = 'http://127.0.0.1:8000'
+root = 'https://milestin.xyz:83/'
+root_ = 'https://milestin.xyz:83'
 if __name__=="__main__":
     domain = root + "auth/"
     session = requests.session()
