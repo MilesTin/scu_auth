@@ -6,5 +6,6 @@ urlpatterns = [
     path("login",login),
     path("getCaptcha", getCaptcha),
     path("logout", logout),
+    path("getCookies", get_cookies)
 ]
 

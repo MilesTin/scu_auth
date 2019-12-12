@@ -72,16 +72,17 @@ class sculogin(object):
             'j_captcha':captcha,
         }
         # print(cookies)
-        res = self.session.post(sculogin.url,data=data,cookies=cookies)
-        # print(res.status_code)
-        # print(res.text)
+        res = self.session.post(self.url,data=data,cookies=cookies)
+        print(res.status_code)
+
         print("data:{}".format(data))
-        print("cookies:{}".format(cookies))
-        print("登录结果: " + res.text)
+        # print("server request j_spring_security request url: "+res.url)
 
+        res = self.session.get("http://zhjw.scu.edu.cn/student/rollManagement/rollInfo/index",cookies=cookies)
 
-        if res.status_code==200:
+        if res.status_code==200 and res.url=="http://zhjw.scu.edu.cn/student/rollManagement/rollInfo/index" and username in res.text:
             return True
+        print(res.url)
 
         return False
 
@@ -90,9 +91,9 @@ class sculogin(object):
 def login(request):
     scuLoginer = sculogin()
 
-    stuId = request.GET.get("stuId","")
-    passwd = request.GET.get("passwd", "")
-    captcha = request.GET.get("captcha", "")
+    stuId = request.POST.get("stuId","")
+    passwd = request.POST.get("passwd", "")
+    captcha = request.POST.get("captcha", "")
     is_updated = request.session.get("is_updated",False)
 
     cookies = request.session.get("cookies")
@@ -111,6 +112,7 @@ def login(request):
         passwd = md5_encoder.hexdigest()
         stu.password = passwd
         stu.save()
+        request.session['zhjw_cookies'] = dict(scuLoginer.session.cookies)
         return JsonResponse({"msg":"绑定成功"})
 
     else:
@@ -123,8 +125,12 @@ def getCaptcha(request):
     rel_url = scuLoginer.getCapatcha()
     request.session["is_updated"] = True
     request.session["cookies"] = dict(scuLoginer.cookies)
+    print(request.session['cookies'])
     return JsonResponse({"msg":"获取验证码成功", 'img_url': rel_url})
 
+
+def get_cookies(request):
+    return JsonResponse(dict(request.session['cookies']))
 
 def logout(request):
     del request.session['is_updated']
