@@ -20,7 +20,7 @@
 
   <img src="https://github.com/MilesTin/scu_auth/blob/master/md_images/step1.PNG" style="margin-top:10px;"/>
   <li>登录 https://milestin.xyz:83/auth/login?stuId=*&passwd=*&captcha=* </li>
-  <img src="https://github.com/MilesTin/scu_auth/blob/master/md_images/step2.PNG" style="margin-top:10px;"/img>
+  <img src="https://github.com/MilesTin/scu_auth/blob/master/md_images/step2.png" style="margin-top:10px;"/img>
   <li> 登出 https://milestin.xyz:83/auth/logout</li>
   <img src="https://github.com/MilesTin/scu_auth/blob/master/md_images/step3.PNG" /img>
 
